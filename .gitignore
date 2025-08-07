@@ -1,0 +1,16 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xcuserstate
+
+# Swift
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.swiftpm
+.build/
+Package.resolved

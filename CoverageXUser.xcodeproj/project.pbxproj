@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		43E0B0062E44B9CE00ABD93B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43E0B0052E44B9C400ABD93B /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		43E0AFE92E44B92400ABD93B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		43E0AFDB2E44B92300ABD93B /* CoverageXUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoverageXUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E0AFE82E44B92400ABD93B /* CoverageXUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoverageXUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E0AFF22E44B92400ABD93B /* CoverageXUserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoverageXUserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E0B0052E44B9C400ABD93B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		43E0AFD22E44B92300ABD93B = {
 			isa = PBXGroup;
 			children = (
+				43E0B0052E44B9C400ABD93B /* README.md */,
 				43E0AFDD2E44B92300ABD93B /* CoverageXUser */,
 				43E0AFEB2E44B92400ABD93B /* CoverageXUserTests */,
 				43E0AFF52E44B92400ABD93B /* CoverageXUserUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43E0B0062E44B9CE00ABD93B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
