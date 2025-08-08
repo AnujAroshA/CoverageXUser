@@ -112,4 +112,35 @@ final class CoverageXUserTests: XCTestCase {
         XCTAssertEqual(viewModel.filteredUsers.count, 2)
     }
 
+    func testURLError() {
+        class URLErrorService: UserService {
+            override func fetchUsers() -> AnyPublisher<[User], APIError> {
+                // Simulate a nil URL scenario
+                let invalidURL: URL? = nil
+                guard let _ = invalidURL else {
+                    return Fail(error: .urlError).eraseToAnyPublisher()
+                }
+                fatalError("Should never reach here")
+            }
+        }
+
+        let service = URLErrorService()
+        let expectation = XCTestExpectation(description: "Expect urlError")
+
+        service.fetchUsers()
+            .sink { completion in
+                if case let .failure(error) = completion {
+                    if case .urlError = error {
+                        expectation.fulfill()
+                    } else {
+                        XCTFail("Expected urlError, got \(error)")
+                    }
+                }
+            } receiveValue: { _ in
+                XCTFail("Should not succeed")
+            }
+            .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 1)
+    }
 }
