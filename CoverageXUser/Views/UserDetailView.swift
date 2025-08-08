@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserDetailView: View {
     let user: User
-
+    
     var body: some View {
         VStack(spacing: 20) {
             AsyncImage(url: URL(string: user.picture.large)) { image in
@@ -19,11 +19,12 @@ struct UserDetailView: View {
             }
             .frame(width: 150, height: 150)
             .clipShape(Circle())
-
-            Text(user.name.fullName).font(.title2).bold()
-            Text(user.email)
-            Text(user.phone)
-
+            .accessibilityIdentifier("userImage")
+            
+            Text(user.name.fullName).font(.title2).bold().accessibilityIdentifier("userFullName")
+            Text(user.email).accessibilityIdentifier("userEmail")
+            Text(user.phone).accessibilityIdentifier("userPhone")
+            
             Spacer()
         }
         .padding()
