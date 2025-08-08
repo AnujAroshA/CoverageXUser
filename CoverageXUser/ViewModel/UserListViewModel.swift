@@ -21,6 +21,9 @@ class UserListViewModel: ObservableObject {
         self.userService = userService
     }
 
+    /**
+     Search filter related
+     */
     var filteredUsers: [User] {
         guard !searchText.isEmpty else { return allUsers }
         return allUsers.filter {
@@ -32,6 +35,9 @@ class UserListViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
 
+        /**
+         `weak self` has been used to avoid strong reference cycle (retain cycycle)
+         */
         userService.fetchUsers()
             .sink { [weak self] completion in
                 self?.isLoading = false

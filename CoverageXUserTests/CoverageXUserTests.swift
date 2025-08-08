@@ -76,4 +76,40 @@ final class CoverageXUserTests: XCTestCase {
 
         wait(for: [expectation], timeout: 1)
     }
+    
+    func testSearchFiltering() {
+        let mockUser1 = User(
+            id: .init(name: "ID", value: "1"),
+            name: .init(title: "Mr", first: "John", last: "Smith"),
+            email: "john@example.com",
+            phone: "123456789",
+            picture: .init(thumbnail: "", large: "")
+        )
+
+        let mockUser2 = User(
+            id: .init(name: "ID", value: "2"),
+            name: .init(title: "Ms", first: "Alice", last: "Brown"),
+            email: "alice@example.com",
+            phone: "987654321",
+            picture: .init(thumbnail: "", large: "")
+        )
+
+        viewModel = UserListViewModel(userService: MockUserService())
+        viewModel.allUsers = [mockUser1, mockUser2]
+
+        viewModel.searchText = "john"
+        XCTAssertEqual(viewModel.filteredUsers.count, 1)
+        XCTAssertEqual(viewModel.filteredUsers.first?.name.first, "John")
+
+        viewModel.searchText = "alice"
+        XCTAssertEqual(viewModel.filteredUsers.count, 1)
+        XCTAssertEqual(viewModel.filteredUsers.first?.name.first, "Alice")
+
+        viewModel.searchText = "xyz"
+        XCTAssertEqual(viewModel.filteredUsers.count, 0)
+
+        viewModel.searchText = ""
+        XCTAssertEqual(viewModel.filteredUsers.count, 2)
+    }
+
 }
