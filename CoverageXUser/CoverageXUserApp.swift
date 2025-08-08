@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+/**
+ This is the entrance point to the application
+ */
 @main
 struct CoverageXUserApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UserListView()
         }
     }
 }
