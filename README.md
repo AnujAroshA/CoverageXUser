@@ -19,7 +19,7 @@ SwiftUI iOS sample app showing a list of users fetched from https://randomuser.m
 ## How to run
 1. Clone the project to a Mac
 2. Open the project in Xcode
-3. Build and run the application targetting a emulator
+3. Build and run the application targetting an emulator
 4. (Optional) If you want to run targetting a real device you may need to change the Team and Bundle Identifier
 
 ## Notes on approach
