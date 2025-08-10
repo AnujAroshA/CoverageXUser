@@ -14,9 +14,9 @@ struct UserListView: View {
         NavigationView {
             VStack {
                 if viewModel.isLoading {
-                    ProgressView("Loading...")
+                    ProgressView(LocalizedStringKey("loading"))
                 } else if let error = viewModel.errorMessage {
-                    Text("Error: \(error)").foregroundColor(.red)
+                    Text(error).foregroundColor(.red)
                 } else {
                     List(viewModel.filteredUsers) { user in
                         NavigationLink(destination: UserDetailView(user: user)) {
@@ -39,7 +39,7 @@ struct UserListView: View {
                     }
                 }
             }
-            .navigationTitle("Users")
+            .navigationTitle(LocalizedStringKey("title_users"))
         }
         .onAppear {
             viewModel.fetchUsers()

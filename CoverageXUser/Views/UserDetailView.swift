@@ -28,7 +28,7 @@ struct UserDetailView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("Details")
+        .navigationTitle(LocalizedStringKey("title_details"))
     }
 }
 
